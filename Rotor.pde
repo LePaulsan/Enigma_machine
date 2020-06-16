@@ -89,14 +89,15 @@ class Rotor {
 
   // this function display the rotor current nunber
   void display(int x, int y) {
-    stroke(0);
-    fill(200);
+    noStroke();
+    fill(255, 255, 0, 100);
+    rectMode(CENTER);
     rect(x, y, 26, 50);
 
     textSize(20);
-    fill(0);
+    fill(100, 0, 255);
     textAlign(CENTER, CENTER);
-    text(rotor_No, x + 13, y + 25);
+    text(rotor_No, x, y);
   }
 
   // this method check if the previous wheal has turn over yet

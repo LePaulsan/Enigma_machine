@@ -2,32 +2,34 @@
 boolean check = true;
 
 class Lamp {
-  float x_loc, y_loc;
+  PVector location;
   char letter;
 
 
   Lamp (float tempX, float tempY, char tempL) {
-    x_loc = tempX;
-    y_loc = tempY;
+    location = new PVector(tempX, tempY);
     letter = tempL;
   }
 
   void drawLamp() {
-    stroke(100);
+    noStroke();
     fill(255);
-    circle(x_loc, y_loc, 35);
+    circle(location.x, location.y, 35);
 
     textSize(20);
     fill(0);
     textAlign(CENTER);
-    text(letter, x_loc, y_loc + 8);
+    text(letter, location.x, location.y + 8);
+  }
+  // accept input, true if input is the right lamp number
+  boolean checkInput(char input) {
+    return input == letter;
   }
 
-  void lightUp(char i) {
-    if (i == letter) {
-      stroke(255);
-      fill(255, 255, 0, 150);
-      circle(x_loc, y_loc, 30);
-    }
+  // light up lamp
+  void lightUp() {
+    noStroke();
+    fill(255, 255, 0, 150);
+    circle(location.x, location.y, 40);
   }
 }
